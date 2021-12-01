@@ -18,6 +18,6 @@ nrIncreasedDepths depths =
 
 main :: IO()
 main = do
-    content <- fmap lines (readFile "../resources/input_01.txt")
+    content <- fmap lines (readFile "./resources/input_01.txt")
     let depths = map read content
     print $ nrIncreasedDepths depths
