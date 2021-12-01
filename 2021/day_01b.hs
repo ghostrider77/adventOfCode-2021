@@ -8,11 +8,10 @@ nrIncreasedDepths :: [Int] -> Int
 nrIncreasedDepths depths =
     let sums = map (\(a, b, c) -> a + b + c) $ slidingWindow depths
         go :: Int -> [Int] -> Int
-        go acc [] = acc
-        go acc [_] = acc
         go acc (a : b : xs) =
             let acc' = if b > a then acc + 1 else acc
             in go acc' (b : xs)
+        go acc _ = acc
     in go 0 sums
 
 

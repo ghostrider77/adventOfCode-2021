@@ -2,11 +2,10 @@
 nrIncreasedDepths :: [Int] -> Int
 nrIncreasedDepths depths =
     let go :: Int -> [Int] -> Int
-        go acc [] = acc
-        go acc [_] = acc
         go acc (a : b : dss) =
             let acc' = if b > a then acc + 1 else acc
             in go acc' (b : dss)
+        go acc _ = acc
     in go 0 depths
 
 
