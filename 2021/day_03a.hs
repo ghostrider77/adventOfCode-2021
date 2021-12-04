@@ -10,8 +10,7 @@ calcPowerConsumption report =
             in if length zeroes >= length ones then '0' else '1'
         binaryToDecimal :: String -> Int
         binaryToDecimal = foldl (\acc c -> 2*acc + digitToInt c) 0
-        columns = transpose report
-        gammaRate = map mostCommon columns
+        gammaRate = map mostCommon $ transpose report
         epsilonRate = map (\b -> if b == '0' then '1' else '0') gammaRate
         gamma = binaryToDecimal gammaRate
         epsilon = binaryToDecimal epsilonRate
