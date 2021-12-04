@@ -53,10 +53,10 @@ updateBoard board number =
 
 calcScore :: (Int, Board) -> Int
 calcScore (n, board) =
-    let update :: Int -> Cell -> Int
-        update acc (UnMarked k) = acc + k
-        update acc _ = acc
-    in n * M.foldl update 0 board
+    let accumulate :: Int -> Cell -> Int
+        accumulate acc (UnMarked k) = acc + k
+        accumulate acc _ = acc
+    in n * M.foldl accumulate 0 board
 
 
 playBingo :: [Int] -> [Board] -> Maybe Int
