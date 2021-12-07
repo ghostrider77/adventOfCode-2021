@@ -2,7 +2,7 @@ import Data.List.Split (splitOn)
 
 
 readPositions :: [String] -> [Int]
-readPositions content = map read $ splitOn  "," $ head content
+readPositions content = map read $ splitOn "," $ head content
 
 
 calcAlignmentPoint :: [Int] -> Int
@@ -14,7 +14,7 @@ calcAlignmentPoint crabs =
         findBestScore bestScore m =
             let score = sum $ map (`distance` m) crabs
             in if score < bestScore then score else bestScore
-        in foldl findBestScore maxBound [minValue..maxValue]
+    in foldl findBestScore maxBound [minValue..maxValue]
 
 
 main :: IO ()

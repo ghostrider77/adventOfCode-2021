@@ -3,7 +3,7 @@ import Data.List (sort)
 
 
 readPositions :: [String] -> [Int]
-readPositions content = map read $ splitOn  "," $ head content
+readPositions content = map read $ splitOn "," $ head content
 
 
 calcAlignmentPoint :: [Int] -> Int

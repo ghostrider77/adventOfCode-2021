@@ -7,7 +7,7 @@ type State = IntMap Integer
 
 readState :: [String] -> State
 readState content =
-    let states = map read $ splitOn  "," $ head content
+    let states = map read $ splitOn "," $ head content
         empty = M.fromList $ map (\k -> (k, 0)) [0..8]
     in foldl (\counts state -> M.insertWith (+) state 1 counts) empty states
 

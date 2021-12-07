@@ -4,7 +4,7 @@ newtype LanternFish = LanternFish Int
 
 
 readState :: [String] -> [LanternFish]
-readState content = map (LanternFish . read) $ splitOn  "," $ head content
+readState content = map (LanternFish . read) $ splitOn "," $ head content
 
 
 nextDay :: [LanternFish] -> [LanternFish]
