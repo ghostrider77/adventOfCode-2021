@@ -36,9 +36,9 @@ foldPaper paper (Instruction axis value) =
 
 printCode :: Set Coord -> String
 printCode paper =
-    let xMax = S.findMax $ S.map (\(x, y) -> x) paper
-        yMax = S.findMax $ S.map (\(x, y) -> y) paper
-        points = map (\y -> map (\x -> if S.member (x, y) paper then "#" else "." ) [0..xMax]) [0..yMax]
+    let xMax = S.findMax $ S.map fst paper
+        yMax = S.findMax $ S.map snd paper
+        points = map (\y -> map (\x -> if S.member (x, y) paper then "*" else " " ) [0..xMax]) [0..yMax]
     in intercalate "\n" $ map (intercalate "") points
 
 
