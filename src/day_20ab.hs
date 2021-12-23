@@ -52,7 +52,7 @@ enhanceImage image algorithm step =
                 encoding = pixelsToInt pixels
             in algorithm ! encoding
         (((xMin, yMin), _), ((xMax, yMax), _)) = (M.findMin image, M.findMax image)
-    in M.fromList [((ix, jy), calcPixel (ix, jy)) | ix <-[(xMin-1)..(xMax+1)], jy <- [(yMin-1)..(yMax+1)]]
+    in M.fromList [((ix, jy), calcPixel (ix, jy)) | ix <- [(xMin-1)..(xMax+1)], jy <- [(yMin-1)..(yMax+1)]]
 
 
 runAlgorithm :: Map Coord Pixel -> Vector Pixel -> Int -> Int
@@ -64,4 +64,5 @@ main = do
     content <- fmap lines (readFile "./resources/input_20.txt")
     let algorithm = readAlgorithm $ head content
     let image = readInputImage $ drop 2 content
-    print $ runAlgorithm image algorithm 50
+    let nrSteps = 2
+    print $ runAlgorithm image algorithm nrSteps
